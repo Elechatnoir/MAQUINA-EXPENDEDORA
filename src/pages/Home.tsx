@@ -1,6 +1,3 @@
-import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-
 export const Home = () => {
   return (
     <div className="synthwave-bg retro-grid min-h-screen">

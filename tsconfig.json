@@ -34,8 +34,9 @@
       "@/assets/*": ["src/assets/*"]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "src/vite-env.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "types": ["vitest/globals", "@testing-library/jest-dom"]
 }
 
 

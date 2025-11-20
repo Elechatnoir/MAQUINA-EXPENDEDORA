@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
 
 export const Code = () => {
   const [activeTab, setActiveTab] = useState('automata')
