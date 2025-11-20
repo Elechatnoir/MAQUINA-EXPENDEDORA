@@ -118,21 +118,21 @@ export const Home = () => {
         {/* Botones de acción */}
         <div className="text-center space-y-6">
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="retro-button px-8 py-4 rounded-lg text-lg font-bold">
+            {/* <button className="retro-button px-8 py-4 rounded-lg text-lg font-bold">
               🎮 PROBAR MÁQUINA
-            </button>
-            <a 
+            </button> */}
+            {/* <a 
               href="/code" 
               className="retro-button px-8 py-4 rounded-lg text-lg font-bold inline-block"
             >
               📚 VER CÓDIGO
-            </a>
-            <a 
+            </a> */}
+            {/* <a 
               href="/theory" 
               className="retro-button px-8 py-4 rounded-lg text-lg font-bold inline-block"
             >
               🔬 TEORÍA
-            </a>
+            </a> */}
       </div>
 
       <div className="text-center">
