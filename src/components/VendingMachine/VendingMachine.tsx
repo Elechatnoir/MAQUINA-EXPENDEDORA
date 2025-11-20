@@ -36,9 +36,9 @@ const VendingMachine = () => {
 
   // Productos con nuevos precios
   const products = [
-    { id: '11', name: 'Chetos', price: 1500, color: '#FF4444', row: 0, col: 0 },
+    { id: '11', name: 'Cheetos', price: 1500, color: '#FF4444', row: 0, col: 0 },
     { id: '12', name: 'Detodito', price: 2500, color: '#FF8800', row: 0, col: 1 },
-    { id: '13', name: 'Cheestres', price: 3000, color: '#8844FF', row: 0, col: 2 }
+    { id: '13', name: 'Cheese tris', price: 3000, color: '#8844FF', row: 0, col: 2 }
   ];
 
   // Máximo de saldo permitido
