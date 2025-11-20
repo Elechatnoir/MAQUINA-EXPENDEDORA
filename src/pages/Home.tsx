@@ -149,7 +149,7 @@ export const Home = () => {
         <div className="text-center text-sm text-gray-400 space-y-2">
           <p>Desarrollado con React + TypeScript + Tailwind CSS</p>
           <p>Implementación de Autómatas Finitos y Expresiones Regulares</p>
-          <p className="neon-text">✨ Proyecto Académico 2024 ✨</p>
+          
         </div>
       </div>
     </div>

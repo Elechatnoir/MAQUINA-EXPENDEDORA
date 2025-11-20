@@ -214,38 +214,36 @@ const VendingMachine = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 p-4 flex items-center justify-center">
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 p-2 sm:p-3 md:p-4 lg:p-4 flex items-center justify-center overflow-x-hidden">
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5 lg:gap-6">
         
         {/* Máquina expendedora con perspectiva 3D */}
-        <div className="lg:col-span-8">
+        <div className="md:col-span-1 lg:col-span-8">
           <div 
-            className="relative bg-gradient-to-b from-gray-400 via-gray-300 to-gray-400 rounded-3xl shadow-2xl border-8 border-gray-800"
+            className="relative bg-gradient-to-b from-gray-400 via-gray-300 to-gray-400 rounded-xl md:rounded-2xl lg:rounded-3xl shadow-2xl border-4 md:border-6 lg:border-8 border-gray-800 lg:shadow-[40px_40px_80px_rgba(0,0,0,0.5)] lg:[transform:perspective(1200px)_rotateY(-8deg)]"
             style={{
-              transform: 'perspective(1200px) rotateY(-8deg)',
               transformStyle: 'preserve-3d',
-              boxShadow: '40px 40px 80px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.3)'
             }}
           >
-            <div className="p-8" style={{ transform: 'translateZ(20px)' }}>
+            <div className="p-4 md:p-6 lg:p-8 lg:[transform:translateZ(20px)]">
               
               {/* Panel superior con display */}
-              <div className="bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl p-4 mb-6 border-4 border-gray-600 shadow-lg">
-                <div className="bg-cyan-300 rounded-lg p-3 border-2 border-cyan-700">
+              <div className="bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl p-3 md:p-4 mb-4 md:mb-5 lg:mb-6 border-2 md:border-3 lg:border-4 border-gray-600 shadow-lg">
+                <div className="bg-cyan-300 rounded-lg p-2 md:p-3 border-2 border-cyan-700">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-bold text-gray-800">💳 Saldo</span>
-                    <span className="text-2xl font-bold text-gray-900">{displayTime}</span>
+                    <span className="text-sm md:text-base lg:text-lg font-bold text-gray-800">💳 Saldo</span>
+                    <span className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">{displayTime}</span>
                   </div>
-                  <div className="bg-cyan-100 rounded p-3 border border-cyan-400">
-                    <p className="text-cyan-900 font-bold text-xl text-center">${balance}</p>
+                  <div className="bg-cyan-100 rounded p-2 md:p-3 border border-cyan-400">
+                    <p className="text-cyan-900 font-bold text-lg md:text-xl text-center">${balance}</p>
                     <p className="text-cyan-700 text-xs text-center mt-1">Estado: {state} | Max: ${MAX_BALANCE}</p>
                   </div>
                 </div>
               </div>
 
               {/* Vitrina de productos con fondo negro */}
-              <div className="bg-black rounded-2xl p-6 mb-6 border-8 border-gray-700 shadow-inner">
-                <div className="grid grid-cols-3 gap-6">
+              <div className="bg-black rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 mb-4 md:mb-5 lg:mb-6 border-4 md:border-6 lg:border-8 border-gray-700 shadow-inner">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                   {products.map((product) => (
                     <div
                       key={product.id}
@@ -284,7 +282,7 @@ const VendingMachine = () => {
                         {/* Contenido del producto */}
                         <div className="relative z-10">
                           <div 
-                            className="w-20 h-24 mx-auto mb-3 rounded-lg flex items-center justify-center text-4xl font-bold"
+                            className="w-16 h-20 sm:w-18 sm:h-22 md:w-20 md:h-24 mx-auto mb-2 md:mb-3 rounded-lg flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold"
                             style={{ 
                               background: product.color,
                               boxShadow: `0 4px 15px ${product.color}80`
@@ -292,8 +290,8 @@ const VendingMachine = () => {
                           >
                             🥨
                           </div>
-                          <div className="text-white font-bold text-sm mb-1">{product.name}</div>
-                          <div className="text-yellow-400 font-bold">${product.price}</div>
+                          <div className="text-white font-bold text-xs md:text-sm mb-1">{product.name}</div>
+                          <div className="text-yellow-400 font-bold text-sm md:text-base">${product.price}</div>
                           <div className="text-gray-400 text-xs mt-1 font-mono">{product.id}</div>
                         </div>
 
@@ -322,21 +320,21 @@ const VendingMachine = () => {
               </div>
 
               {/* Panel de control lateral derecho */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
                 
                 {/* Área de mensajes */}
-                <div className="col-span-2 space-y-4">
+                <div className="md:col-span-2 space-y-3 md:space-y-4">
                   {/* Display de mensaje */}
-                  <div className="bg-gray-700 rounded-xl p-4 border-4 border-gray-800">
-                    <div className="bg-blue-900 rounded-lg p-3 border-2 border-blue-600">
-                      <p className="text-blue-300 text-sm font-mono">{message}</p>
+                  <div className="bg-gray-700 rounded-xl p-3 md:p-4 border-2 md:border-3 lg:border-4 border-gray-800">
+                    <div className="bg-blue-900 rounded-lg p-2 md:p-3 border-2 border-blue-600">
+                      <p className="text-blue-300 text-xs md:text-sm font-mono break-words">{message}</p>
                     </div>
                   </div>
 
                   {/* Ranura de monedas */}
-                  <div className="bg-gray-800 rounded-xl p-4 border-4 border-gray-900">
+                  <div className="bg-gray-800 rounded-xl p-3 md:p-4 border-2 md:border-3 lg:border-4 border-gray-900">
                     <div className="text-yellow-400 text-xs font-bold mb-2 text-center">💰 MONEDAS</div>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {[100, 200, 500, 1000].map(coin => {
                         const wouldExceed = balance + coin > MAX_BALANCE;
                         return (
@@ -344,7 +342,7 @@ const VendingMachine = () => {
                             key={coin}
                             onClick={() => insertCoin(coin)}
                             disabled={dispensing || wouldExceed}
-                            className={`font-bold py-3 px-2 rounded-lg transform transition hover:scale-110 active:scale-95 text-xs ${
+                            className={`font-bold py-2 md:py-2.5 lg:py-3 px-2 rounded-lg transform transition hover:scale-110 active:scale-95 text-xs md:text-sm ${
                               wouldExceed 
                                 ? 'bg-gray-600 text-gray-400 cursor-not-allowed opacity-50' 
                                 : 'bg-gradient-to-b from-yellow-400 to-yellow-600 hover:from-yellow-300 hover:to-yellow-500 text-black'
@@ -359,10 +357,10 @@ const VendingMachine = () => {
                 </div>
 
                 {/* Panel de botones numérico */}
-                <div className="bg-gray-800 rounded-xl p-4 border-4 border-gray-900">
+                <div className="bg-gray-800 rounded-xl p-3 md:p-4 border-2 md:border-3 lg:border-4 border-gray-900">
                   {/* Display del código ingresado */}
                   <div className="bg-gray-900 rounded-lg p-2 mb-3 border-2 border-gray-700 min-h-[40px] flex items-center justify-center">
-                    <span className="text-green-400 font-mono text-xl">{inputCode || '_'}</span>
+                    <span className="text-green-400 font-mono text-lg md:text-xl">{inputCode || '_'}</span>
                   </div>
                   
                   <div className="grid grid-cols-3 gap-2 mb-3">
@@ -371,7 +369,7 @@ const VendingMachine = () => {
                         key={num}
                         onClick={() => handleNumberPress(num.toString())}
                         disabled={dispensing}
-                        className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 rounded border-2 border-gray-600 text-sm active:bg-gray-500 disabled:opacity-50"
+                        className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 md:py-2.5 rounded border-2 border-gray-600 text-sm md:text-base active:bg-gray-500 disabled:opacity-50"
                       >
                         {num}
                       </button>
@@ -379,16 +377,16 @@ const VendingMachine = () => {
                     <button 
                       onClick={clearInput}
                       disabled={dispensing}
-                      className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 rounded border-2 border-gray-600 text-sm active:bg-gray-500 disabled:opacity-50">
+                      className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 md:py-2.5 rounded border-2 border-gray-600 text-sm md:text-base active:bg-gray-500 disabled:opacity-50">
                       C
                     </button>
                     <button
                       onClick={() => handleNumberPress('0')}
                       disabled={dispensing}
-                      className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 rounded border-2 border-gray-600 text-sm active:bg-gray-500 disabled:opacity-50">
+                      className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 md:py-2.5 rounded border-2 border-gray-600 text-sm md:text-base active:bg-gray-500 disabled:opacity-50">
                       0
                     </button>
-                    <button className="bg-gray-700 text-gray-500 font-bold py-2 rounded border-2 border-gray-600 text-sm cursor-not-allowed">
+                    <button className="bg-gray-700 text-gray-500 font-bold py-2 md:py-2.5 rounded border-2 border-gray-600 text-sm md:text-base cursor-not-allowed">
                       #
                     </button>
                   </div>
@@ -397,14 +395,14 @@ const VendingMachine = () => {
                   <button
                     onClick={dispenseProduct}
                     disabled={!selectedProduct || balance < (selectedProduct?.price || 0) || dispensing}
-                    className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg mb-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                    className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-2.5 md:py-3 rounded-lg mb-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs md:text-sm"
                   >
                     OK
                   </button>
                   <button
                     onClick={cancel}
                     disabled={dispensing}
-                    className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                    className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-2.5 md:py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed text-xs md:text-sm"
                   >
                     CANCEL
                   </button>
@@ -412,18 +410,18 @@ const VendingMachine = () => {
               </div>
 
                             {/* Bandeja de entrega */}
-                            <div className="mt-6 bg-gray-800 rounded-b-2xl p-4 border-4 border-gray-900">
-                <div className="bg-black h-16 rounded-lg border-2 border-gray-700 flex items-center justify-center relative">
+                            <div className="mt-4 md:mt-5 lg:mt-6 bg-gray-800 rounded-b-xl md:rounded-b-2xl p-3 md:p-4 border-2 md:border-3 lg:border-4 border-gray-900">
+                <div className="bg-black h-12 md:h-14 lg:h-16 rounded-lg border-2 border-gray-700 flex items-center justify-center relative">
                   {dispensing ? (
-                    <div className="text-6xl animate-bounce">📦</div>
+                    <div className="text-4xl md:text-5xl lg:text-6xl animate-bounce">📦</div>
                   ) : (
-                    <span className="text-gray-600 text-xs">🎁 RETIRA TU PRODUCTO AQUÍ</span>
+                    <span className="text-gray-600 text-xs md:text-sm">🎁 RETIRA TU PRODUCTO AQUÍ</span>
                   )}
                 </div>
               </div>
 
               {/* Rejilla de ventilación inferior */}
-              <div className="mt-4 grid grid-cols-12 gap-1 px-4">
+              <div className="mt-3 md:mt-4 grid grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1 px-2 md:px-3 lg:px-4">
                 {[...Array(48)].map((_, i) => (
                   <div key={i} className="h-1 bg-gray-600 rounded-full"></div>
                 ))}
@@ -433,9 +431,9 @@ const VendingMachine = () => {
         </div>
 
         {/* Panel de información del autómata */}
-        <div className="lg:col-span-4">
-          <div className="bg-gray-800 rounded-xl p-6 border-4 border-gray-700 shadow-xl h-full">
-            <h2 className="text-2xl font-bold text-white mb-4">📊 Autómata Finito</h2>
+        <div className="md:col-span-1 lg:col-span-4">
+          <div className="bg-gray-800 rounded-xl p-4 md:p-5 lg:p-6 border-2 md:border-3 lg:border-4 border-gray-700 shadow-xl h-full">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">📊 Autómata Finito</h2>
             
             {/* Estado actual */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-4 mb-4 border-2 border-blue-400">
